@@ -4,20 +4,24 @@ server:
 spring:
   application:
     name: auth-service
- jpa:
-   database-platform: org.hibernate.dialect.PostgreSQLDialect
-   hibernate:
-     ddl-auto: none
-   show-sql: false
-   properties:
-     hibernate.format_sql: true
- flyway:
-   enabled: true
-   locations: classpath:db/migrations
-   baseline-on-migrate: true
-   clean-disabled: true
- logging:
-   level:
-     org:
-       springframework:
-         security=DEBUG:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate.format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migrations
+    baseline-on-migrate: true
+    clean-disabled: true
+  logging:    level:
+      org:
+        springframework:
+          security: DEBUG
