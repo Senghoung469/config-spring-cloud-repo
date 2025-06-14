@@ -13,10 +13,11 @@ spring:
       hibernate.format_sql: true
   flyway:
     enabled: true
-    locations: classpath:db/migration
+    locations: classpath:db/migration # Note: You had 'migrations' before, now it's 'migration'. Ensure this matches your actual folder name.
     baseline-on-migrate: true
     clean-disabled: true
-  logging:    level:
-      org:
-        springframework:
-          security: DEBUG
+  logging: # This needs to be correctly indented under 'spring'
+    level: # This needs to be correctly indented under 'logging'
+      org: # This needs to be correctly indented under 'level'
+        springframework: # This needs to be correctly indented under 'org'
+          security: DEBUG # This needs to be correctly indented under 'springframework'
